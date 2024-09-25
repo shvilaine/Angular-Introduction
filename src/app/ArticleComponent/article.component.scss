@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  width: 30%;
+  height: auto;
+  border-radius: 10px;
+  background: rgb(241, 239, 239);
+  flex-wrap: wrap;
+  padding: 1rem;
+  margin: auto;
+  border: 2px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title {
+  size: 1em;
+  color: black;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.card-text {
+  size: 0.75em;
+  color: black;
+  flex-wrap: wrap;
+  text-align: center;
+}
