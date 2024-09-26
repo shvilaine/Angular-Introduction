@@ -1,7 +1,22 @@
 <div class="card">
-  <h1 class="card-title">Article n°1 - 25 septembre 2024</h1>
-  <p class="card-text">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae sunt repellendus expedita beatae minus 
-    magnam rerum ratione molestiae fuga architecto!
-  </p>
+  <h2 class="card-title">{{ article.title }}</h2>
+  <img [src]="article.image" [alt]="article.image" />
+  <h5>{{ article.author }}</h5>
+  <p class="card-text" *ngIf="article.isPublished">{{ article.content }}</p>
+  <button (click)="togglePublication()">
+    {{ article.isPublished ? "Dépublier" : "Publier" }}
+  </button>
+
+  <div class="comment">
+    <label for="title-comment"
+      >Ajouter un commentaire à: {{ article.title }}</label
+    >
+    <input
+      class="article-comment"
+      type="textarea"
+      [(ngModel)]="article.comment"
+      placeholder="Laissez votre commentaire ici"
+    />
+    <p *ngIf="article.comment">Commentaires : {{ article.comment }}</p>
+  </div>
 </div>
