@@ -2,15 +2,6 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-interface Article {
-  title: string;
-  author: string;
-  content: string;
-  image: string;
-  isPublished: boolean;
-  comment: string;
-}
-
 @Component({
   selector: 'app-article-component',
   standalone: true,
@@ -19,7 +10,8 @@ interface Article {
   styleUrl: './article.component.scss',
 })
 export class ArticleComponent {
-  article: Article = {
+  article = 
+  {
     title: 'Article n°1 - Septembre 2024',
     author: 'Hélène S. Vilaine',
     content:

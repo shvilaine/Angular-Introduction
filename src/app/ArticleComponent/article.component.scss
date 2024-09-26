@@ -37,6 +37,10 @@ button {
   border-radius: 10px;
   border: 1px solid rgb(94, 145, 175);
   background-color: rgb(94, 145, 175);
+
+  &:hover {
+    zoom: 1.25;
+  }
 }
 
 .comment {
