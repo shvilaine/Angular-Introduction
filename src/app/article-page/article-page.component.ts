@@ -1,26 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Article } from './../models/article.class';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Article } from './models/article.class';
-import { ArticlePageComponent } from './article-page/article-page.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-article-component',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    ArticlePageComponent,
-    NotFoundComponent,
-    FormsModule,
-    CommonModule,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  imports: [FormsModule, CommonModule, NotFoundComponent],
+  templateUrl: './article-page.component.html',
+  styleUrl: './article-page.component.scss',
 })
-export class AppComponent {
-  title = 'Bienvenue sur le blog de Hélène!';
+export class ArticlePageComponent {
+
+  article?: Article;
+  trendyArticle = 'darkred';
 
   articles: Article[] = [
     {
@@ -29,7 +24,7 @@ export class AppComponent {
       author: 'Alice',
       content: "Les nouveautés d'Angular 16 incluent...",
       image: 'https://via.placeholder.com/350x150',
-      isPublished: true,
+      isPublished: false,
       comment: '',
       likes: 120,
     },
@@ -52,14 +47,19 @@ export class AppComponent {
       isPublished: true,
       comment: '',
       likes: 200,
-    }
-    ];
+    },
+  ];
 
-  togglePublication(article: Article): void {
-    article.isPublished = !article.isPublished;
+  route: ActivatedRoute = inject(ActivatedRoute);
+  articleId!: number;
+
+  ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.articleId = Number(params.get('id'));
+
+      this.article = this.articles.find(
+        (article) => article.id === this.articleId
+      );
+    });
   }
-
-  anyArticleIsPublished = this.articles.some(
-    (article) => article.isPublished === true
-  );
 }

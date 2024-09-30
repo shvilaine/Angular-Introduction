@@ -1,26 +1,19 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Article } from '../models/article.class';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Article } from './models/article.class';
-import { ArticlePageComponent } from './article-page/article-page.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { RouterOutlet, RouterLink } from '@angular/router';
+
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home-page',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    ArticlePageComponent,
-    NotFoundComponent,
-    FormsModule,
-    CommonModule,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  imports: [FormsModule, CommonModule, RouterLink],
+  templateUrl: './home-page.component.html',
+  styleUrl: './home-page.component.scss'
 })
-export class AppComponent {
-  title = 'Bienvenue sur le blog de Hélène!';
+export class HomePageComponent {
+  trendyArticle = 'darkred';
 
   articles: Article[] = [
     {
@@ -54,10 +47,6 @@ export class AppComponent {
       likes: 200,
     }
     ];
-
-  togglePublication(article: Article): void {
-    article.isPublished = !article.isPublished;
-  }
 
   anyArticleIsPublished = this.articles.some(
     (article) => article.isPublished === true
