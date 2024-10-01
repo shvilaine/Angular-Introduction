@@ -1,4 +1,4 @@
-import { Article } from './../models/article.class';
+import { Article } from '../models/article.model';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';

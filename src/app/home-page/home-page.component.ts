@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Article } from '../models/article.class';
+import { Article } from '../models/article.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink } from '@angular/router';

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Article } from './models/article.class';
+import { Article } from './models/article.model';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
