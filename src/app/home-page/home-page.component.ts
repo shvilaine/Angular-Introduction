@@ -11,6 +11,7 @@ import { ArticleCardComponent } from "../article-card/article-card.component";
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
+  likesListener!: string | null;
 
   articlesList: Article[] = [
     {
@@ -69,4 +70,7 @@ export class HomePageComponent {
     (article) => article.isPublished === true
   );
 
+  handleNotification(title: string) {
+    alert(`L\'article ${title} a été liké!`);  
+    }
 }

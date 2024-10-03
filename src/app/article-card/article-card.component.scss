@@ -13,8 +13,8 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   width: 400px;
-  height: 450px;
-  border-radius: 10px;
+  height: 500px;
+  border-radius: 5px;
   background: rgb(241, 239, 239);
   flex-direction: column;
   padding: 1rem;
@@ -37,12 +37,21 @@ h5 {
     width: 100%;
   }
 
-  .read-button {
-    border-radius: 10px;
+  .read-button,
+  .like-button {
+    border-radius: 5px;
     padding: 0.5rem;
     margin-top: 0.5rem;
-    background-color: rgb(94, 145, 175);
     cursor: pointer;
+  }
+
+  .read-button {
+    background-color: rgb(94, 145, 175);
+    text-decoration: none;
+  }
+
+  .like-button {
+    background-color: rgb(224, 162, 173);
   }
 }
 

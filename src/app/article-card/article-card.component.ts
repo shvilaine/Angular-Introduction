@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Article } from '../models/article.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,4 +16,10 @@ export class ArticleCardComponent {
 
   @Input()
   article!: Article;
+
+  @Output() articleLikes: EventEmitter<string> = new EventEmitter();
+  likeArticle(title: string): void {
+    this.articleLikes.emit(title);
+  }
+
 }

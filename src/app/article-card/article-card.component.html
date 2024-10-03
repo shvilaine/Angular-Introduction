@@ -10,10 +10,10 @@
     </h2>
     <img [src]="article.image" [alt]="article.image" />
     <h5>{{ article.author }}</h5>
+    <button class="like-button" (click)="likeArticle(article.title)">Like ♥</button>
     <h5>Nombre de likes: {{ article.likes }}</h5>
-
     <button class="read-button">
-      <a [routerLink]="['/article', article.id]">Lire l'article</a>
+      <span [routerLink]="['/article', article.id]">Lire l'article</span>
     </button>
   </div>
 </div>

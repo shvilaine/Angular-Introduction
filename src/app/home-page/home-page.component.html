@@ -1,7 +1,8 @@
 <main class="card-main">
-  @if (anyArticleIsPublished) { 
-    @for(article of articlesList; track $index) {
-  <app-article-card [article]="articlesList[$index]"> </app-article-card>
-    } 
-  }
+  @if (anyArticleIsPublished) { @for(article of articlesList; track $index) {
+  <app-article-card
+    [article]="articlesList[$index]"
+    (articleLikes)="handleNotification($event)"
+  ></app-article-card>
+  } }
 </main>
