@@ -1,21 +1,20 @@
 @if(article) {
-<div class="card">
-  <h2 class="card-title">{{ article.title }}</h2>
-  <img [src]="article.image" [alt]="article.image" />
-  <h5>{{ article.author }}</h5>
-  <p class="card-text">{{ article.content }}</p>
+ <div class="card">
+    <h2 class="card-title">{{ article.title }}</h2>
+    <img [src]="article.image" [alt]="article.image" />
+    <h5>{{ article.author }}</h5>
+    <p class="card-text">{{ article.content }}</p>
 
-  <div class="comment">
-    <label for="title-comment"
-      >Ajouter un commentaire à: {{ article.title }}</label
-    >
-    <input
-      class="article-comment"
-      type="textarea"
-      [(ngModel)]="article.comment"
-      placeholder="Laissez votre commentaire ici"
-    />
-    <p *ngIf="article.comment">Commentaires : {{ article.comment }}</p>
+    <div class="comment">
+      <label for="title-comment">
+        Ajouter un commentaire à: {{ article.title }}</label>
+      <input
+        class="article-comment"
+        type="textarea"
+        [(ngModel)]="article.comment"
+        placeholder="Laissez votre commentaire ici"
+      />
+      <p *ngIf="article.comment">Commentaires : {{ article.comment }}</p>
+    </div>
   </div>
-</div>
 }

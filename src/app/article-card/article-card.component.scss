@@ -1,0 +1,67 @@
+h5 {
+  margin: 0.5rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 450px;
+  border-radius: 10px;
+  background: rgb(241, 239, 239);
+  flex-direction: column;
+  padding: 1rem;
+  margin: auto;
+  border: 2px solid black;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    scale: 1.05;
+  }
+
+  .card-title {
+    size: 1em;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .read-button {
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: rgb(94, 145, 175);
+    cursor: pointer;
+  }
+}
+
+.comment {
+  padding: 0.5rem;
+}
+
+input {
+  border-radius: 10px;
+}
+
+.article-comment {
+  width: 90%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.popular-article {
+  font-size: 1.5em;
+  text-shadow: 2px 2px 5px gray;
+  font-weight: bold;
+}

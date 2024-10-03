@@ -1,0 +1,55 @@
+<form #loginForm="ngForm" (ngSubmit)="loginForm.valid && onSubmit()">
+  @if(loginForm.submitted) {
+  <!-- Message d'erreurs du formulaire global -->
+  <div>Le formulaire est-il soumis ? {{ loginForm.submitted }}</div>
+  <div>Le formulaire est-il valide ? {{ loginForm.valid }}</div>
+  <div>Le formulaire a-t-il des erreurs ? {{ loginForm.invalid }}</div>
+  }
+
+  <fieldset>
+    <label for="email">Email:</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="newLogin.email"
+      #email="ngModel"
+      required
+      email
+    />
+  </fieldset>
+  @if (email.errors && loginForm.submitted) {
+  <div class="error-message">
+    @if (email.errors['required']) {
+    <span>L'email est requis</span>
+    } @if (email.errors['email']) {
+    <span>L'email est invalide</span>
+    }
+  </div>
+  }
+
+  <fieldset>
+    <label for="password">Mot de passe:</label>
+    <input
+      name="password"
+      type="password"
+      id="password"
+      [(ngModel)]="newLogin.password"
+      #password="ngModel"
+      required
+      password
+    />
+    @if (password.errors && loginForm.submitted) {
+    <div>
+      @if (password.errors['required']) {
+      <span>Le mot de passe est requis.</span>
+      } @if (password.errors['securePassword']) {
+      <span
+        >Le mot de passe doit contenir au moins 6 caractères.</span>
+      }
+    </div>
+    }
+  </fieldset>
+
+  <button type="submit">Envoyer</button>
+</form>

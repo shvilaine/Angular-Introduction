@@ -1,5 +1,5 @@
 export interface Article {
-  id: number,
+  id: number;
   title: string;
   author: string;
   content: string;
@@ -8,4 +8,3 @@ export interface Article {
   comment: string;
   likes: number;
 }
-  

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Article } from './models/article.model';
 import { ArticlePageComponent } from './article-page/article-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NotFoundComponent,
     FormsModule,
     CommonModule,
+    NavbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

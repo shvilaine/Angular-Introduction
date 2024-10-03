@@ -1,0 +1,22 @@
+@if(article.isPublished) {
+<div class="card-container">
+  <div class="card">
+    <h2
+      class="card-title"
+      [ngClass]="{ 'popular-article': article.likes > 100 }"
+      [ngStyle]="{ color: article.likes > 150 ? trendyArticle : 'black' }"
+    >
+      {{ article.title }}
+    </h2>
+    <img [src]="article.image" [alt]="article.image" />
+    <h5>{{ article.author }}</h5>
+    <h5>Nombre de likes: {{ article.likes }}</h5>
+
+    <button class="read-button">
+      <a [routerLink]="['/article', article.id]">Lire l'article</a>
+    </button>
+  </div>
+</div>
+} @else {
+<p>Aucun article publié pour le moment</p>
+}

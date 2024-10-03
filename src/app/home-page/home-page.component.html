@@ -1,38 +1,7 @@
 <main class="card-main">
-    @if (anyArticleIsPublished) { 
-      @for(article of articles; track $index) {
-        @if(article.isPublished) {
-          <div class="card-container">
-            <div class="card">
-              <h2
-              class="card-title"
-              [ngClass]="{ 'popular-article': article.likes > 100 }"
-              [ngStyle]="{ color: article.likes > 150 ? trendyArticle : 'black' }"
-              >
-              {{ article.title }}
-              </h2>
-              <img [src]="article.image" [alt]="article.image" />
-              <h5>{{ article.author }}</h5>
-              <h5>Nombre de likes: {{ article.likes }}</h5>
-              <p class="card-text">{{ article.content }}</p>
-
-              <button><a [routerLink]="['/article', article.id]">Lire l'article</a></button>
-  
-              <div class="comment">
-              <label for="title-comment">Ajouter un commentaire:</label>
-              <input
-              class="article-comment"
-              type="text"
-              [(ngModel)]="article.comment"
-              placeholder="Laissez votre commentaire ici"
-              />
-              <p>Commentaires : {{ article.comment }}</p>
-            </div>
-          </div>
-        </div>
-      } 
+  @if (anyArticleIsPublished) { 
+    @for(article of articlesList; track $index) {
+  <app-article-card [article]="articlesList[$index]"> </app-article-card>
     } 
-  } @else {
-    <p>Aucun article publié pour le moment</p>
   }
-  </main>
+</main>
